@@ -56,7 +56,7 @@ async def stop_bot(bot: Bot):
 async def main():
     logger.info("Started!")
 
-    bot = Bot(token=os.getenv('TOKENPREPROD'),
+    bot = Bot(token=os.getenv('TOKENGEOGRAFTPROD'),
               default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await bot.delete_webhook()
     dp_storage = MemoryStorage()
