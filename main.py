@@ -12,6 +12,8 @@ from aiogram.enums import ParseMode
 from aiogram.client.default import DefaultBotProperties
 from handlers import base_router
 
+from aioutils import set_commands
+
 load_dotenv()
 MAIN_ADMIN = int(os.getenv("MAIN_ADMIN_ID"))
 
@@ -35,6 +37,7 @@ logger.addHandler(file_handler)
 
 
 async def start_bot(bot: Bot):
+    await set_commands(bot)
     try:
         await bot.send_message(chat_id=MAIN_ADMIN, text='The Bot is running!')
         logger.debug(msg='The Bot is running!')
